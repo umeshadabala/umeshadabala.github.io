@@ -1,8 +1,363 @@
-<html>
-	<body>
-		BRB IN FEW HOURS !!!!
-		<a href='https://bhashabytes.github.io/> Meanwhile try out my latest project </a>
-		
-	</body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umesh Adabala | Terminal Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/ocr-a-std" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        /* Default Neon Green Theme */
+        :root {
+            --fg: #D4D4D4;
+            /* Light Grey/White for main text */
+            --accent: #00ffaa;
+            /* Neon Green for prompt/links/icons */
+            --bg: #0d0d0d;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 0.05em;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #terminal {
+            padding: 20px;
+            height: calc(100vh - 40px);
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+
+        .prompt {
+            color: var(--accent);
+        }
+
+        input {
+            background: none;
+            border: none;
+            color: var(--fg);
+            font-family: inherit;
+            font-size: 1em;
+            width: 80%;
+            outline: none;
+        }
+
+        ::selection {
+            background: var(--fg);
+            color: #000;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .banner {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+
+        /* Unique Banner Styles */
+        #unique-banner-container {
+            margin-bottom: 2em;
+            padding-bottom: 1em;
+            border-bottom: 1px dashed var(--fg);
+        }
+
+        #dynamic-message {
+            color: var(--fg);
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        #help-message {
+            color: var(--accent);
+            font-weight: bold;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 700px) {
+
+            /* Scale terminal and text down for small screens */
+            body {
+                font-size: 0.85em;
+            }
+
+            #terminal {
+                transform: scale(0.9);
+                transform-origin: top left;
+                padding: 15px;
+                height: calc(100vh - 30px);
+            }
+
+            input {
+                font-size: 0.9em;
+            }
+        }
+
+        .typed-line {
+            display: block;
+            white-space: pre-wrap;
+        }
+
+        i {
+            color: var(--accent);
+            margin-right: 6px;
+        }
+
+        /* Cursor blinking effect */
+        @keyframes blink {
+            50% {
+                visibility: hidden;
+            }
+        }
+
+        .typed-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1em;
+            background-color: var(--fg);
+            margin-left: 2px;
+            animation: blink 0.7s step-start infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="terminal">
+        <div id="unique-banner-container">
+            <span id="dynamic-message"></span>
+            <span id="help-message">Type 'help' to begin.</span>
+        </div>
+
+        <div><span class="prompt">&gt;</span> <input id="commandInput" autofocus autocomplete="off"
+                spellcheck="false" /></div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const input = document.getElementById('commandInput');
+        const root = document.documentElement;
+        const dynamicMessageElement = document.getElementById('dynamic-message');
+
+        const uniqueBannerMessages = [
+            "Welcome to Umesh Adabala's Portfolio System. Loading modules...",
+            "UMESH.EXE v1.0 initialized. Ready for command input.",
+            "Teenage Innovator Console Activated. Access Granted.",
+            "Searching for next big project... Found: You! Welcome.",
+            "Status: Online. Creator: Umesh Adabala. Command interface open."
+        ];
+
+        // Define colors for the 'color' command
+        const colorSchemes = {
+            'neon': { fg: '#D4D4D4', accent: '#00ffaa' },
+            'blue': { fg: '#FFFFFF', accent: '#00BFFF' },
+            'red': { fg: '#FFFFFF', accent: '#FF4500' },
+            'yellow': { fg: '#000000', accent: '#FFFF00', bg: '#333333' },
+            'hacker': { fg: '#C0C0C0', accent: '#00FF00', bg: '#101010' }
+        };
+
+        // --- Commands Object ---
+        const commands = {
+            help: `Available commands:
+  <i class="fa-solid fa-user fa-fw"></i> about        - Who I am
+  <i class="fa-solid fa-lightbulb fa-fw"></i> skills       - My core skills
+  <i class="fa-solid fa-trophy fa-fw"></i> achievements - Key milestones and awards
+  <i class="fa-solid fa-folder-open fa-fw"></i> projects     - Highlighted projects
+  <i class="fa-solid fa-envelope fa-fw"></i> contact      - How to reach me
+  <i class="fa-solid fa-palette fa-fw"></i> color        - Change the terminal theme (e.g., 'color blue')
+  <i class="fa-solid fa-broom fa-fw"></i> clear        - Clear the terminal`,
+
+            about: `Hey there! I'm Umesh Adabala — a teenage innovator, creator of BhashaBytes 🌐, and passionate about building projects that merge creativity and code. I love working on AI, education tech, hardware integrations, and gamified learning experiences.`,
+
+            skills: `Core skills:
+  <i class="fa-brands fa-python fa-fw"></i> Python Programming
+  <i class="fa-solid fa-gamepad fa-fw"></i> Game & App Development
+  <i class="fa-solid fa-robot fa-fw"></i> Robotics & IoT
+  <i class="fa-solid fa-database fa-fw"></i> Data Handling (JSON, MySQL)
+  <i class="fa-solid fa-brain fa-fw"></i> AI & Chatbot Design
+  <i class="fa-solid fa-paintbrush fa-fw"></i> UI/UX for Educational Tools
+  <i class="fa-solid fa-terminal fa-fw"></i> CLI & Automation`,
+
+            projects: `Highlighted projects:
+  <i class="fa-solid fa-code fa-fw"></i> <a href="https://bhashabytes.github.io/" target="_blank">BhashaBytes</a> — Toy programming languages inspired by Indian languages 🇮🇳
+  <i class="fa-solid fa-chart-line fa-fw"></i> <a href="https://papertradex.streamlit.app/" target="_blank">PaperTradeX</a> — A web-based crytpo market trading simulator 💹
+  <i class="fa-solid fa-puzzle-piece fa-fw"></i> <a href="https://umeshdevstudio.itch.io/dig-dig-repeat" target="_blank">Dig Dig Repeat</a> — A fun and frustrating game 🎮
+  <i class="fa-solid fa-bullseye fa-fw"></i> <a href="https://umeshdevstudio.itch.io/dig-dig-repeatmathified" target="_blank">Dig Dig Repeat (Mathified)</a> — The enhanced, math edition of the Dig Dig Repeat 🎯
+  <i class="fa-brands fa-linux fa-fw"></i> <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11_Apps</a> — Exploratory projects in Linux GUI and system design 🖥️
+  <i class="fa-solid fa-train-subway fa-fw"></i> <a href="https://github.com/umeshadabala/pnr_status" target="_blank">pnr_status</a> — Python script to check Indian train PNR info 🚉
+  <i class="fa-solid fa-shield-halved fa-fw"></i> <a href="https://umeshdevstudio.itch.io/circle-vs-square" target="_blank">Circle vs Square</a> — A simple strategy game ⚔️`,
+            achievements: `Key Achievements:
+  <i class="fa-solid fa-award fa-fw"></i> Indian Book of Records Achiever
+    Published 11 regional programming languages in 1 hour at age 17 (BhashaBytes Project)
+
+  <i class="fa-solid fa-file-pdf fa-fw"></i> Research Paper
+    <a href="https://www.curieuxacademicjournal.com/_files/ugd/99711c_b97b0f2ef3e74aceb8b0d6b3a12700cb.pdf#page=311" target="_blank">"Digital Fusion Roots"</a> submitted to the Curieux Academic Journal(CAJ)
+
+  Hackathons:
+    <i class="fa-solid fa-trophy fa-fw"></i> <a href="https://kite-hacks-back-to-school.devpost.com/?_gl=1*6jmob9*_gcl_au*NzQ4NTI3NzI4LjE3NjA3MTM1OTQ.*_ga*OTA5OTcxMDIyLjE3MjY0OTIyMTg.*_ga_0YHJK3Y10M*czE3NjA3MTM1OTQkbzQyJGcxJHQxNzYwNzEzNjYxJGo1MyRsMCRoMA.." target="_blank">Kite Hacks Back To School</a> [WINNER]
+      Submission: <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11 Apps</a>
+    
+    <i class="fa-solid fa-code-branch fa-fw"></i> <a href="https://itch.io/jam/daydream-global" target="_blank">Daydream Global Jam</a>
+      Submission: <a href="https://umeshdevstudio.itch.io/hand-cricket-showdown" target="_blank">Hand Cricket Showdown</a>`,
+
+            contact: `You can reach me at:
+  <i class="fa-brands fa-youtube fa-fw"></i> <a href="https://youtube.com/@umeshlab987" target="_blank">youtube.com/@umeshlab987</a>
+  <i class="fa-brands fa-instagram fa-fw"></i> <a href="https://instagram.com/adabalaumesh" target="_blank">instagram.com/adabalaumesh</a>
+  <i class="fa-brands fa-github fa-fw"></i> <a href="https://github.com/umeshadabala" target="_blank">github.com/umeshadabala</a>
+  <i class="fa-brands fa-x-twitter fa-fw"></i> <a href="https://x.com/umesh_lab" target="_blank">x.com/umesh_lab</a>`,
+
+            clear: 'CLEAR',
+
+            color: null // Special handling for color command
+        };
+        // -------------------------
+
+        let history = [];
+        let historyIndex = -1;
+        let isTyping = false;
+        let bannerInterval;
+
+        function setTerminalColor(schemeName) {
+            const scheme = colorSchemes[schemeName];
+            if (scheme) {
+                root.style.setProperty('--fg', scheme.fg);
+                root.style.setProperty('--accent', scheme.accent);
+                if (scheme.bg) root.style.setProperty('--bg', scheme.bg);
+                else root.style.setProperty('--bg', '#0d0d0d');
+                return `Theme set to '${schemeName}'.`;
+            }
+            return `Available themes: ${Object.keys(colorSchemes).join(', ')}`;
+        }
+
+        function printOutput(cmd, output) {
+            const newLine = document.createElement('div');
+            newLine.innerHTML = `<span class="prompt">&gt;</span> ${cmd}`;
+            terminal.insertBefore(newLine, input.parentElement);
+
+            if (output === 'CLEAR') {
+                terminal.innerHTML = '';
+                // Re-create the unique banner container
+                const bannerContainer = document.createElement('div');
+                bannerContainer.id = 'unique-banner-container';
+                bannerContainer.innerHTML = `<span id="dynamic-message"></span><span id="help-message">Type 'help' to begin.</span>`;
+
+                terminal.appendChild(bannerContainer);
+                terminal.appendChild(input.parentElement);
+
+                // Re-initialize dynamic message display
+                const newDynamicMessageElement = document.getElementById('dynamic-message');
+                startDynamicBanner(newDynamicMessageElement);
+                input.focus();
+                return;
+            }
+
+            const outLine = document.createElement('div');
+            outLine.classList.add('typed-line');
+            terminal.insertBefore(outLine, input.parentElement);
+
+            // INSTANT OUTPUT for all command content (text and HTML)
+            if (output) {
+                outLine.innerHTML = output;
+            } else {
+                outLine.textContent = `Command not found: ${cmd}`;
+            }
+
+            terminal.scrollTop = terminal.scrollHeight;
+            input.focus();
+        }
+
+        // --- Unique Dynamic Banner Logic ---
+        function startDynamicBanner(element) {
+            clearInterval(bannerInterval); // Clear any existing interval
+
+            let currentMessageIndex = 0;
+
+            function updateMessage() {
+                const message = uniqueBannerMessages[currentMessageIndex];
+                element.textContent = message;
+                currentMessageIndex = (currentMessageIndex + 1) % uniqueBannerMessages.length;
+            }
+
+            // Initial message
+            updateMessage();
+            // Cycle through messages every 3 seconds
+            bannerInterval = setInterval(updateMessage, 3000);
+        }
+
+        window.onload = () => {
+            startDynamicBanner(dynamicMessageElement);
+            input.focus();
+        };
+
+        // --- Input Event Listener ---
+        input.addEventListener('keydown', e => {
+            if (e.key === 'Enter') {
+                const fullCmd = input.value.trim();
+                const cmdParts = fullCmd.toLowerCase().split(' ');
+                const baseCmd = cmdParts[0];
+                const arg = cmdParts.length > 1 ? cmdParts[1] : null;
+
+                if (fullCmd) {
+                    history.push(fullCmd);
+                    historyIndex = history.length;
+
+                    if (baseCmd === 'color') {
+                        let output = setTerminalColor(arg);
+                        printOutput(fullCmd, output);
+                    } else {
+                        printOutput(fullCmd, commands[baseCmd]);
+                    }
+                }
+                input.value = '';
+            }
+
+            if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) input.value = history[--historyIndex];
+                e.preventDefault();
+            }
+
+            if (e.key === 'ArrowDown') {
+                if (historyIndex < history.length - 1) input.value = history[++historyIndex];
+                else input.value = '';
+                e.preventDefault();
+            }
+
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const current = input.value.trim().toLowerCase();
+                if (!current) return;
+                const matches = Object.keys(commands).filter(c => c.startsWith(current));
+                if (matches.length === 1) input.value = matches[0];
+                else if (matches.length > 1) {
+                    printOutput(current, `Possible commands:\n  ${matches.join('\n  ')}`);
+                    input.value = current; // Restore current input value after printing matches
+                }
+            }
+        });
+
+        // Ensure input is focused when clicking on the terminal area
+        terminal.addEventListener('click', () => {
+            input.focus();
+        });
+    </script>
+</body>
+
+</html>
