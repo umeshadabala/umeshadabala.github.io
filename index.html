@@ -4,364 +4,545 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Umesh Adabala</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/ocr-a-std" rel="stylesheet">
-
+    <title>Umesh Adabala — Innovator, Creator, Builder</title>
+    <meta name="description"
+        content="Portfolio of Umesh Adabala — teenage innovator, creator of BhashaBytes, building at the intersection of AI, education, and code.">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <style>
-        /* Default Neon Green Theme */
-        :root {
-            --fg: #D4D4D4;
-            /* Light Grey/White for main text */
-            --accent: #00ffaa;
-            /* Neon Green for prompt/links/icons */
-            --bg: #0d0d0d;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--fg);
-            font-family: 'Roboto Mono', monospace;
-            letter-spacing: 0.05em;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        #terminal {
-            padding: 20px;
-            height: calc(100vh - 40px);
-            overflow-y: auto;
-            white-space: pre-wrap;
-        }
-
-        .prompt {
-            color: var(--accent);
-        }
-
-        input {
-            background: none;
-            border: none;
-            color: var(--fg);
-            font-family: inherit;
-            font-size: 1em;
-            width: 80%;
-            outline: none;
-        }
-
-        ::selection {
-            background: var(--fg);
-            color: #000;
-        }
-
-        a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .banner {
-            color: var(--accent);
-            font-weight: bold;
-            margin-bottom: 1em;
-        }
-
-        /* Unique Banner Styles */
-        #unique-banner-container {
-            margin-bottom: 2em;
-            padding-bottom: 1em;
-            border-bottom: 1px dashed var(--fg);
-        }
-
-        #dynamic-message {
-            color: var(--fg);
-            display: block;
-            margin-bottom: 0.5em;
-        }
-
-        #help-message {
-            color: var(--accent);
-            font-weight: bold;
-            display: block;
-            text-transform: uppercase;
-        }
-
-        @media (max-width: 700px) {
-
-            /* Scale terminal and text down for small screens */
-            body {
-                font-size: 0.85em;
-            }
-
-            #terminal {
-                transform: scale(0.9);
-                transform-origin: top left;
-                padding: 15px;
-                height: calc(100vh - 30px);
-            }
-
-            input {
-                font-size: 0.9em;
-            }
-        }
-
-        .typed-line {
-            display: block;
-            white-space: pre-wrap;
-        }
-
-        i {
-            color: var(--accent);
-            margin-right: 6px;
-        }
-
-        /* Cursor blinking effect */
-        @keyframes blink {
-            50% {
-                visibility: hidden;
-            }
-        }
-
-        .typed-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1em;
-            background-color: var(--fg);
-            margin-left: 2px;
-            animation: blink 0.7s step-start infinite;
-        }
-    </style>
 </head>
 
 <body>
-    <div id="terminal">
-        <div id="unique-banner-container">
-            <span id="dynamic-message"></span>
-            <span id="help-message">Type 'help' to begin.</span>
+
+    <!-- ═══ Navigation ═══ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">UA<span class="blink">_</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </nav>
 
-        <div><span class="prompt">&gt;</span> <input id="commandInput" autofocus autocomplete="off"
-                spellcheck="false" /></div>
-    </div>
+    <!-- ═══ Hero ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span class="dot"></span> System Online</div>
+            <h1 class="hero-name">Hi, I'm <span class="accent">Umesh Adabala</span></h1>
+            <div class="hero-typing"><span id="typingText"></span><span class="cursor"></span></div>
+            <div class="hero-age" id="ageCounter">
+                <span class="age-value" id="ageYears">--</span><span class="age-label">yrs</span>
+                <span class="age-value" id="ageDays">--</span><span class="age-label">days</span>
+                <span class="age-value" id="ageHours">--</span><span class="age-label">hrs</span>
+                <span class="age-value" id="ageMins">--</span><span class="age-label">min</span>
+                <span class="age-value" id="ageSecs">--</span><span class="age-label">sec</span>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/umeshadabala" target="_blank" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/Um35hAdaba1a" target="_blank" aria-label="X / Twitter"><i
+                        class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://youtube.com/@umeshlab987" target="_blank" aria-label="YouTube"><i
+                        class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
 
+    <hr class="section-divider">
+
+    <!-- ═══ About ═══ -->
+    <section class="section" id="about">
+        <div class="reveal">
+            <p class="section-label">About Me</p>
+            <h2 class="section-title">Teenage Innovator & Creator</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hey there! I'm Umesh Adabala — a teenage innovator, creator of <a
+                            href="https://bhashabytes.github.io/" target="_blank">BhashaBytes</a>, and passionate about
+                        building projects that merge creativity and code.</p>
+                    <p>I love working on AI, education tech, hardware integrations, gamified learning experiences, and
+                        civic technology. From building toy programming languages in 11 Indian scripts to simulating
+                        elections and crowd intelligence systems — I ship fast and learn faster.</p>
+                    <p>Currently exploring the intersection of real-time systems, cloud-native platforms, and products
+                        that solve real-world problems for the Indian market.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">10+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">11</span>
+                        <span class="stat-label">Languages (BhashaBytes)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Record Holder</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">∞</span>
+                        <span class="stat-label">Curiosity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Skills ═══ -->
+    <section class="section" id="skills">
+        <div class="reveal">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                <div class="skill-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-item"><i class="fa-brands fa-react"></i><span>React</span></div>
+                <div class="skill-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill-item"><i class="fa-solid fa-flask-vial"></i><span>Flask</span></div>
+                <div class="skill-item"><i class="fa-solid fa-robot"></i><span>AI & LLMs</span></div>
+                <div class="skill-item"><i class="fa-solid fa-microchip"></i><span>Robotics & IoT</span></div>
+                <div class="skill-item"><i class="fa-solid fa-database"></i><span>Databases</span></div>
+                <div class="skill-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                <div class="skill-item"><i class="fa-brands fa-google"></i><span>Google Cloud</span></div>
+                <div class="skill-item"><i class="fa-solid fa-gamepad"></i><span>Game Dev</span></div>
+                <div class="skill-item"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+                <div class="skill-item"><i class="fa-solid fa-terminal"></i><span>CLI & Automation</span></div>
+                <div class="skill-item"><i class="fa-solid fa-paintbrush"></i><span>UI/UX Design</span></div>
+                <div class="skill-item"><i class="fa-brands fa-html5"></i><span>HTML & CSS</span></div>
+                <div class="skill-item"><i class="fa-solid fa-brain"></i><span>Chatbot Design</span></div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Projects ═══ -->
+    <section class="section" id="projects">
+        <div class="reveal">
+            <p class="section-label">Projects</p>
+            <h2 class="section-title">What I've Built</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🌐</div>
+                        <div class="project-links">
+                            <a href="https://github.com/bhashabytes" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://bhashabytes.github.io/" target="_blank"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">BhashaBytes</h3>
+                    <p class="project-desc">Toy programming languages inspired by 11 Indian languages. Published in 1
+                        hour — Indian Book of Records. 🇮🇳</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Interpreters</span>
+                        <span class="project-tag">EdTech</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🚀</div>
+                        <div class="project-links">
+                            <a href="https://github.com/Life-Boat-ai/LifeBoat.ai" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">LifeBoat.ai</h3>
+                    <p class="project-desc">Intelligent career survival dashboard — AI-powered resume parsing, real-time
+                        job discovery via Adzuna, budget-aware housing search, and financial runway analytics.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Claude AI</span>
+                        <span class="project-tag">Vite</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🖥️</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/X_11-apps" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="http://www.umeshadabala.xyz/000OS/" target="_blank"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">000OS</h3>
+                    <p class="project-desc">A basic Linux distro based on BusyBox. Exploratory projects in Linux GUI
+                        (X11) and system-level design.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Linux</span>
+                        <span class="project-tag">BusyBox</span>
+                        <span class="project-tag">X11</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">💹</div>
+                        <div class="project-links">
+                            <a href="https://papertradex.streamlit.app/" target="_blank"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">PaperTradeX</h3>
+                    <p class="project-desc">A web-based crypto market trading simulator. Practice trading with real-time
+                        data and zero risk.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Streamlit</span>
+                        <span class="project-tag">Finance</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🎮</div>
+                        <div class="project-links">
+                            <a href="https://umeshdevstudio.itch.io/dig-dig-repeat" target="_blank"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Dig Dig Repeat</h3>
+                    <p class="project-desc">A fun and frustrating game — plus a Mathified edition that gamifies math
+                        learning with the same core loop.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Game Dev</span>
+                        <span class="project-tag">EdTech</span>
+                        <span class="project-tag">itch.io</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🚉</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/pnr_status" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">PNR Status</h3>
+                    <p class="project-desc">Python script to check Indian Railways PNR status. CLI automation for quick
+                        travel info.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">CLI</span>
+                        <span class="project-tag">Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">⚔️</div>
+                        <div class="project-links">
+                            <a href="https://umeshdevstudio.itch.io/circle-vs-square" target="_blank"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Circle vs Square</h3>
+                    <p class="project-desc">A simple but addictive strategy game pitting geometric shapes against each
+                        other.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Game Dev</span>
+                        <span class="project-tag">Strategy</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ─── Virtual PromptWars Sub-Section ─── -->
+            <div class="promptwars-section">
+                <div class="promptwars-header">
+                    <span class="promptwars-icon">⚡</span>
+                    <div>
+                        <p class="promptwars-label">Sub-Project Collection</p>
+                        <h3 class="promptwars-title">Virtual PromptWars</h3>
+                    </div>
+                </div>
+                <div class="promptwars-grid">
+
+                    <div class="promptwars-card">
+                        <div class="project-header">
+                            <div class="project-icon">🏟️</div>
+                            <div class="project-links">
+                                <a href="https://github.com/umeshadabala/FlowState-Arena" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                                <a href="https://flow-state-arena.vercel.app/" target="_blank"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">FlowState Arena</h3>
+                        <p class="project-desc">Real-time crowd intelligence platform for large-scale venues. A
+                            self-simulating digital twin dashboard using Behavioral Load Balancing to visualize,
+                            predict, and manage crowd congestion across 36 stadium zones.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Vite</span>
+                            <span class="project-tag">Framer Motion</span>
+                            <span class="project-tag">Tailwind</span>
+                        </div>
+                    </div>
+
+                    <div class="promptwars-card">
+                        <div class="project-header">
+                            <div class="project-icon">🗳️</div>
+                            <div class="project-links">
+                                <a href="https://github.com/umeshadabala/LOKTANTRA" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">LOKTANTRA</h3>
+                        <p class="project-desc">Cloud-native interactive election simulator for India. Teaches civic
+                            literacy through 8 gamified levels grounded in ECI Constitutional principles (Articles
+                            324-329). Powered by Vertex AI and Firestore.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">GCP</span>
+                            <span class="project-tag">Vertex AI</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ─── Potential Startup ─── -->
+            <div class="startup-section">
+                <div class="startup-card">
+                    <div class="startup-badge"><i class="fa-solid fa-rocket"></i> Potential Startup</div>
+                    <h3 class="startup-name">ParkoSpace</h3>
+                    <p class="startup-desc">A peer-to-peer parking marketplace for India. Space owners list their
+                        driveways and private parking areas. People find and contact them directly through a live Google
+                        Map. No middlemen, no booking fees. Built with Flask, Google Maps, and designed in Andhra
+                        Pradesh.</p>
+                    <div class="startup-tags">
+                        <span class="startup-tag">Flask</span>
+                        <span class="startup-tag">Google Maps API</span>
+                        <span class="startup-tag">P2P Marketplace</span>
+                        <span class="startup-tag">PostgreSQL</span>
+                    </div>
+                    <a href="https://github.com/ParkoSpace/in" target="_blank" class="startup-link">
+                        <i class="fa-brands fa-github"></i> View on GitHub →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Achievements ═══ -->
+    <section class="section" id="achievements">
+        <div class="reveal">
+            <p class="section-label">Achievements</p>
+            <h2 class="section-title">Milestones & Awards</h2>
+            <div class="achievements-list">
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="achievement-content">
+                        <h3>Indian Book of Records Achiever</h3>
+                        <p>Published 11 regional programming languages in 1 hour at age 17 — the BhashaBytes Project.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="achievement-content">
+                        <h3>Research Paper Published</h3>
+                        <p><a href="https://www.curieuxacademicjournal.com/_files/ugd/99711c_b97b0f2ef3e74aceb8b0d6b3a12700cb.pdf#page=311"
+                                target="_blank">"Digital Fusion Roots"</a> submitted to the Curieux Academic Journal
+                            (CAJ).</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="achievement-content">
+                        <h3>Kite Hacks Back To School — WINNER</h3>
+                        <p>Won with <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11 Apps</a> —
+                            exploratory projects in Linux GUI and system design.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="achievement-content">
+                        <h3>Daydream Global Jam</h3>
+                        <p>Submitted <a href="https://umeshdevstudio.itch.io/hand-cricket-showdown" target="_blank">Hand
+                                Cricket Showdown</a> — a gamified cricket experience.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Contact ═══ -->
+    <section class="section" id="contact">
+        <div class="reveal">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <a href="https://github.com/umeshadabala" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">umeshadabala</span>
+                    </div>
+                </a>
+                <a href="https://x.com/Um35hAdaba1a" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">X (Twitter)</span>
+                        <span class="contact-value">@Um35hAdaba1a</span>
+                    </div>
+                </a>
+                <a href="https://youtube.com/@umeshlab987" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-youtube"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">YouTube</span>
+                        <span class="contact-value">@umeshlab987</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+        <p>Built with <span class="accent">♥</span> by Umesh Adabala · <span class="accent">2026</span></p>
+    </footer>
+
+    <!-- ═══ JavaScript ═══ -->
     <script>
-        const terminal = document.getElementById('terminal');
-        const input = document.getElementById('commandInput');
-        const root = document.documentElement;
-        const dynamicMessageElement = document.getElementById('dynamic-message');
+        // ─── Age Counter (DOB: 14-02-2008) ───
+        const DOB = new Date(2008, 1, 14, 0, 0, 0); // Feb 14, 2008
 
-        const uniqueBannerMessages = [
-            "Welcome to Umesh Adabala's Portfolio System. Loading modules...",
-            "UMESH.EXE v1.0 initialized. Ready for command input.",
-            "Teenage Innovator Console Activated. Access Granted.",
-            "Searching for next big project... Found: You! Welcome.",
-            "Status: Online. Creator: Umesh Adabala. Command interface open."
+        function updateAge() {
+            const now = new Date();
+            const diff = now - DOB;
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+
+            // Calculate years
+            let years = now.getFullYear() - DOB.getFullYear();
+            const dobThisYear = new Date(now.getFullYear(), DOB.getMonth(), DOB.getDate());
+            if (now < dobThisYear) years--;
+
+            // Days since last birthday
+            let lastBday = new Date(now.getFullYear(), DOB.getMonth(), DOB.getDate());
+            if (now < lastBday) lastBday = new Date(now.getFullYear() - 1, DOB.getMonth(), DOB.getDate());
+            const daysSinceBday = Math.floor((now - lastBday) / (1000 * 60 * 60 * 24));
+
+            // Remaining time within the day
+            const hours = now.getHours();
+            const mins = now.getMinutes();
+            const secs = now.getSeconds();
+
+            document.getElementById('ageYears').textContent = years;
+            document.getElementById('ageDays').textContent = daysSinceBday;
+            document.getElementById('ageHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('ageMins').textContent = String(mins).padStart(2, '0');
+            document.getElementById('ageSecs').textContent = String(secs).padStart(2, '0');
+        }
+
+        updateAge();
+        setInterval(updateAge, 1000);
+
+        // ─── Typing Effect ───
+        const phrases = [
+            "Building things that merge creativity and code.",
+            "Creator of BhashaBytes 🌐",
+            "AI · EdTech · Games · Systems",
+            "Indian Book of Records Achiever.",
+            "Shipping fast. Learning faster."
         ];
 
-        // Define colors for the 'color' command
-        const colorSchemes = {
-            'neon': { fg: '#D4D4D4', accent: '#00ffaa' },
-            'blue': { fg: '#FFFFFF', accent: '#00BFFF' },
-            'red': { fg: '#FFFFFF', accent: '#FF4500' },
-            'yellow': { fg: '#000000', accent: '#FFFF00', bg: '#333333' },
-            'hacker': { fg: '#C0C0C0', accent: '#00FF00', bg: '#101010' }
-        };
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingEl = document.getElementById('typingText');
 
-        // --- Commands Object ---
-        const commands = {
-            help: `Available commands:
-  <i class="fa-solid fa-user fa-fw"></i> about        - Who I am
-  <i class="fa-solid fa-lightbulb fa-fw"></i> skills       - My core skills
-  <i class="fa-solid fa-trophy fa-fw"></i> achievements - Key milestones and awards
-  <i class="fa-solid fa-folder-open fa-fw"></i> projects     - Highlighted projects
-  <i class="fa-solid fa-envelope fa-fw"></i> contact      - How to reach me
-  <i class="fa-solid fa-palette fa-fw"></i> color        - Change the terminal theme (e.g., 'color blue')
-  <i class="fa-solid fa-broom fa-fw"></i> clear        - Clear the terminal`,
-
-            about: `Hey there! I'm Umesh Adabala — a teenage innovator, creator of BhashaBytes 🌐, and passionate about building projects that merge creativity and code. I love working on AI, education tech, hardware integrations, and gamified learning experiences.`,
-
-            skills: `Core skills:
-  <i class="fa-brands fa-python fa-fw"></i> Python Programming
-  <i class="fa-solid fa-gamepad fa-fw"></i> Game & App Development
-  <i class="fa-solid fa-robot fa-fw"></i> Robotics & IoT
-  <i class="fa-solid fa-database fa-fw"></i> Data Handling (JSON, MySQL)
-  <i class="fa-solid fa-brain fa-fw"></i> AI & Chatbot Design
-  <i class="fa-solid fa-paintbrush fa-fw"></i> UI/UX for Educational Tools
-  <i class="fa-solid fa-terminal fa-fw"></i> CLI & Automation`,
-
-            projects: `Highlighted projects:
-  <i class="fa-solid fa-code fa-fw"></i> <a href="https://bhashabytes.github.io/" target="_blank">BhashaBytes</a> — Toy programming languages inspired by Indian languages 🇮🇳
-  <i class="fa-brands fa-linux fa-fw"></i> <a href="http://www.umeshadabala.xyz/000OS/" target="_blank">000OS</a> — A basic Linux distro based on BusyBox 🖥️
-  <i class="fa-solid fa-chart-line fa-fw"></i> <a href="https://papertradex.streamlit.app/" target="_blank">PaperTradeX</a> — A web-based crytpo market trading simulator 💹
-  <i class="fa-solid fa-puzzle-piece fa-fw"></i> <a href="https://umeshdevstudio.itch.io/dig-dig-repeat" target="_blank">Dig Dig Repeat</a> — A fun and frustrating game 🎮
-  <i class="fa-solid fa-bullseye fa-fw"></i> <a href="https://umeshdevstudio.itch.io/dig-dig-repeatmathified" target="_blank">Dig Dig Repeat (Mathified)</a> — The enhanced, math edition of the Dig Dig Repeat 🎯
-  <i class="fa-brands  fa-desktop fa-fw"></i> <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11_Apps</a> — Exploratory projects in Linux GUI and system design 🖥️
-  <i class="fa-solid fa-train-subway fa-fw"></i> <a href="https://github.com/umeshadabala/pnr_status" target="_blank">pnr_status</a> — Python script to check Indian train PNR info 🚉
-  <i class="fa-solid fa-shield-halved fa-fw"></i> <a href="https://umeshdevstudio.itch.io/circle-vs-square" target="_blank">Circle vs Square</a> — A simple strategy game ⚔️`,
-            achievements: `Key Achievements:
-  <i class="fa-solid fa-award fa-fw"></i> Indian Book of Records Achiever
-    Published 11 regional programming languages in 1 hour at age 17 (BhashaBytes Project)
-
-  <i class="fa-solid fa-file-pdf fa-fw"></i> Research Paper
-    <a href="https://www.curieuxacademicjournal.com/_files/ugd/99711c_b97b0f2ef3e74aceb8b0d6b3a12700cb.pdf#page=311" target="_blank">"Digital Fusion Roots"</a> submitted to the Curieux Academic Journal(CAJ)
-
-  Hackathons:
-    <i class="fa-solid fa-trophy fa-fw"></i> <a href="https://kite-hacks-back-to-school.devpost.com/?_gl=1*6jmob9*_gcl_au*NzQ4NTI3NzI4LjE3NjA3MTM1OTQ.*_ga*OTA5OTcxMDIyLjE3MjY0OTIyMTg.*_ga_0YHJK3Y10M*czE3NjA3MTM1OTQkbzQyJGcxJHQxNzYwNzEzNjYxJGo1MyRsMCRoMA.." target="_blank">Kite Hacks Back To School</a> [WINNER]
-      Submission: <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11 Apps</a>
-    
-    <i class="fa-solid fa-code-branch fa-fw"></i> <a href="https://itch.io/jam/daydream-global" target="_blank">Daydream Global Jam</a>
-      Submission: <a href="https://umeshdevstudio.itch.io/hand-cricket-showdown" target="_blank">Hand Cricket Showdown</a>`,
-
-            contact: `You can reach me at:
-  <i class="fa-brands fa-youtube fa-fw"></i> <a href="https://youtube.com/@umeshlab987" target="_blank">youtube.com/@umeshlab987</a>
-  <i class="fa-brands fa-instagram fa-fw"></i> <a href="https://instagram.com/adabalaumesh" target="_blank">instagram.com/adabalaumesh</a>
-  <i class="fa-brands fa-github fa-fw"></i> <a href="https://github.com/umeshadabala" target="_blank">github.com/umeshadabala</a>
-  <i class="fa-brands fa-x-twitter fa-fw"></i> <a href="https://x.com/umesh_lab" target="_blank">x.com/umesh_lab</a>`,
-
-            clear: 'CLEAR',
-
-            color: null // Special handling for color command
-        };
-        // -------------------------
-
-        let history = [];
-        let historyIndex = -1;
-        let isTyping = false;
-        let bannerInterval;
-
-        function setTerminalColor(schemeName) {
-            const scheme = colorSchemes[schemeName];
-            if (scheme) {
-                root.style.setProperty('--fg', scheme.fg);
-                root.style.setProperty('--accent', scheme.accent);
-                if (scheme.bg) root.style.setProperty('--bg', scheme.bg);
-                else root.style.setProperty('--bg', '#0d0d0d');
-                return `Theme set to '${schemeName}'.`;
-            }
-            return `Available themes: ${Object.keys(colorSchemes).join(', ')}`;
-        }
-
-        function printOutput(cmd, output) {
-            const newLine = document.createElement('div');
-            newLine.innerHTML = `<span class="prompt">&gt;</span> ${cmd}`;
-            terminal.insertBefore(newLine, input.parentElement);
-
-            if (output === 'CLEAR') {
-                terminal.innerHTML = '';
-                // Re-create the unique banner container
-                const bannerContainer = document.createElement('div');
-                bannerContainer.id = 'unique-banner-container';
-                bannerContainer.innerHTML = `<span id="dynamic-message"></span><span id="help-message">Type 'help' to begin.</span>`;
-
-                terminal.appendChild(bannerContainer);
-                terminal.appendChild(input.parentElement);
-
-                // Re-initialize dynamic message display
-                const newDynamicMessageElement = document.getElementById('dynamic-message');
-                startDynamicBanner(newDynamicMessageElement);
-                input.focus();
-                return;
-            }
-
-            const outLine = document.createElement('div');
-            outLine.classList.add('typed-line');
-            terminal.insertBefore(outLine, input.parentElement);
-
-            // INSTANT OUTPUT for all command content (text and HTML)
-            if (output) {
-                outLine.innerHTML = output;
+        function typeLoop() {
+            const current = phrases[phraseIndex];
+            if (isDeleting) {
+                typingEl.textContent = current.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeLoop, 400);
+                    return;
+                }
+                setTimeout(typeLoop, 30);
             } else {
-                outLine.textContent = `Command not found: ${cmd}`;
+                typingEl.textContent = current.substring(0, charIndex++);
+                if (charIndex > current.length) {
+                    isDeleting = true;
+                    setTimeout(typeLoop, 2000);
+                    return;
+                }
+                setTimeout(typeLoop, 60);
             }
-
-            terminal.scrollTop = terminal.scrollHeight;
-            input.focus();
         }
 
-        // --- Unique Dynamic Banner Logic ---
-        function startDynamicBanner(element) {
-            clearInterval(bannerInterval); // Clear any existing interval
+        typeLoop();
 
-            let currentMessageIndex = 0;
+        // ─── Nav Toggle ───
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
 
-            function updateMessage() {
-                const message = uniqueBannerMessages[currentMessageIndex];
-                element.textContent = message;
-                currentMessageIndex = (currentMessageIndex + 1) % uniqueBannerMessages.length;
-            }
-
-            // Initial message
-            updateMessage();
-            // Cycle through messages every 3 seconds
-            bannerInterval = setInterval(updateMessage, 3000);
-        }
-
-        window.onload = () => {
-            startDynamicBanner(dynamicMessageElement);
-            input.focus();
-        };
-
-        // --- Input Event Listener ---
-        input.addEventListener('keydown', e => {
-            if (e.key === 'Enter') {
-                const fullCmd = input.value.trim();
-                const cmdParts = fullCmd.toLowerCase().split(' ');
-                const baseCmd = cmdParts[0];
-                const arg = cmdParts.length > 1 ? cmdParts[1] : null;
-
-                if (fullCmd) {
-                    history.push(fullCmd);
-                    historyIndex = history.length;
-
-                    if (baseCmd === 'color') {
-                        let output = setTerminalColor(arg);
-                        printOutput(fullCmd, output);
-                    } else {
-                        printOutput(fullCmd, commands[baseCmd]);
-                    }
-                }
-                input.value = '';
-            }
-
-            if (e.key === 'ArrowUp') {
-                if (historyIndex > 0) input.value = history[--historyIndex];
-                e.preventDefault();
-            }
-
-            if (e.key === 'ArrowDown') {
-                if (historyIndex < history.length - 1) input.value = history[++historyIndex];
-                else input.value = '';
-                e.preventDefault();
-            }
-
-            if (e.key === 'Tab') {
-                e.preventDefault();
-                const current = input.value.trim().toLowerCase();
-                if (!current) return;
-                const matches = Object.keys(commands).filter(c => c.startsWith(current));
-                if (matches.length === 1) input.value = matches[0];
-                else if (matches.length > 1) {
-                    printOutput(current, `Possible commands:\n  ${matches.join('\n  ')}`);
-                    input.value = current; // Restore current input value after printing matches
-                }
-            }
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
-        // Ensure input is focused when clicking on the terminal area
-        terminal.addEventListener('click', () => {
-            input.focus();
+        // Close nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+
+        // ─── Scroll Reveal ───
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // ─── Smooth Scroll ───
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
+
 </body>
 
 </html>
-
-
-
