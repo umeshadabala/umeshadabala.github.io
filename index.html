@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umesh Adabala — Founder, Builder, Developer</title>
+    <meta name="description"
+        content="Portfolio of Umesh Adabala — teenage founder, developer, and builder passionate about creating technology that solves real-world problems.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-glow" id="customCursorGlow"></div>
+
+    <!-- ═══ Navigation ═══ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">UA<span class="blink">_</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#parkospace-showcase">ParkoSpace</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <div class="theme-selector">
+                    <button class="theme-dot" data-theme="green" style="background-color: #00ffaa;" title="Neon Green" aria-label="Neon Green Theme"></button>
+                    <button class="theme-dot" data-theme="cyan" style="background-color: #22d3ee;" title="Electric Cyan" aria-label="Electric Cyan Theme"></button>
+                    <button class="theme-dot" data-theme="pink" style="background-color: #ec4899;" title="Cyber Pink" aria-label="Cyber Pink Theme"></button>
+                    <button class="theme-dot" data-theme="purple" style="background-color: #a855f7;" title="Vaporwave Purple" aria-label="Vaporwave Purple Theme"></button>
+                    <button class="theme-dot" data-theme="orange" style="background-color: #f59e0b;" title="Toxic Orange" aria-label="Toxic Orange Theme"></button>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══ Hero ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge"><span class="dot"></span> System Online</div>
+            <h1 class="hero-name">Hi, I'm <span class="accent">Umesh Adabala</span></h1>
+            <div class="hero-typing"><span id="typingText"></span><span class="cursor"></span></div>
+            <!-- System Diagnostic Console -->
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <div class="dashboard-dots">
+                        <span class="dash-dot red"></span>
+                        <span class="dash-dot yellow"></span>
+                        <span class="dash-dot green"></span>
+                    </div>
+                    <span class="dashboard-title">System Console v2.0.26</span>
+                    <span class="dashboard-status">Online</span>
+                </div>
+                <div class="dashboard-body">
+                    <div class="dashboard-grid">
+                        <!-- Left column: Uptime age counter -->
+                        <div class="dash-panel panel-uptime">
+                            <div class="panel-header">CORE_UPTIME_COUNTER</div>
+                            <div class="hero-age" id="ageCounter">
+                                <span class="age-value" id="ageYears">--</span><span class="age-label">yrs</span>
+                                <span class="age-value" id="ageDays">--</span><span class="age-label">days</span>
+                                <span class="age-value" id="ageHours">--</span><span class="age-label">hrs</span>
+                                <span class="age-value" id="ageMins">--</span><span class="age-label">min</span>
+                                <span class="age-value" id="ageSecs">--</span><span class="age-label">sec</span>
+                            </div>
+                        </div>
+                        <!-- Right column: Simulated stats -->
+                        <div class="dash-panel panel-stats">
+                            <div class="panel-header">DIAGNOSTICS</div>
+                            <div class="stats-list">
+                                <div class="stat-row">
+                                    <span class="stat-name">SYSTEM</span>
+                                    <span class="stat-bar"><span class="stat-bar-fill" style="width: 100%"></span></span>
+                                    <span class="stat-val">ACTIVE</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-name">CURIOSITY</span>
+                                    <span class="stat-bar"><span class="stat-bar-fill" id="statCuriosity" style="width: 95%"></span></span>
+                                    <span class="stat-val" id="valCuriosity">95%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-name">COFFEE</span>
+                                    <span class="stat-bar"><span class="stat-bar-fill" id="statCoffee" style="width: 82%"></span></span>
+                                    <span class="stat-val" id="valCoffee">82%</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="stat-name">LOC</span>
+                                    <span class="stat-val" style="color: var(--text-primary);">IND // BLR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-logs">
+                        <div class="panel-header">SYSTEM_LOGS</div>
+                        <div class="log-lines" id="logLines">
+                            <!-- Real-time logs dynamically populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-socials">
+                <a href="https://github.com/umeshadabala" target="_blank" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/umeshadabala777" target="_blank" aria-label="X / Twitter"><i
+                        class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://youtube.com/@umeshlab987" target="_blank" aria-label="YouTube"><i
+                        class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ About ═══ -->
+    <section class="section" id="about">
+        <div class="reveal">
+            <p class="section-label">About Me</p>
+            <h2 class="section-title">Teenage Founder & Builder</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hey there! I'm Umesh Adabala — a teenage founder, developer, and innovator passionate about building technology that solves real-world problems.</p>
+                    <p>I'm the creator of ParkoSpace, a platform helping drivers discover parking spaces faster, and I've built projects across AI, civic technology, developer tools, education, and cloud platforms.</p>
+                    <p>From launching products and participating in startup programs to earning recognition from the India Book of Records, I focus on turning ideas into working solutions that create measurable impact.</p>
+                    <p>I enjoy building at the intersection of software, automation, AI, and real-world infrastructure. Whether it's improving urban mobility, creating developer tools, or experimenting with emerging technologies, I'm constantly shipping, learning, and improving.</p>
+                    <p>Currently exploring startup growth, agentic AI systems, cloud-native platforms, and products designed for millions of users.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <span class="stat-value">🚀</span>
+                        <span class="stat-label">Startup Founder</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">🏆</span>
+                        <span class="stat-label">India Book of Records</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">30+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">🌏</span>
+                        <span class="stat-label">Solving Real Problems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ ParkoSpace Showcase ═══ -->
+    <section class="section" id="parkospace-showcase">
+        <div class="reveal">
+            <p class="section-label">Featured Startup</p>
+            <h2 class="section-title">ParkoSpace</h2>
+            <div class="startup-card" style="border-color: var(--accent);">
+                <div class="startup-badge"><i class="fa-solid fa-rocket"></i> Flagship Startup</div>
+                <h3 class="startup-name" style="color: var(--accent);">ParkoSpace</h3>
+                <p class="startup-desc">A peer-to-peer parking marketplace for India. Space owners list their
+                    driveways and private parking areas. People find and contact them directly through a live Google
+                    Map. No middlemen, no booking fees. Built with React.js, Node.js, Google Maps.</p>
+                <div class="startup-tags">
+                    <span class="startup-tag">React.js</span>
+                    <span class="startup-tag">Node.js</span>
+                    <span class="startup-tag">Google Maps API</span>
+                    <span class="startup-tag">P2P Marketplace</span>
+                    <span class="startup-tag">PostgreSQL</span>
+                </div>
+                <div class="startup-links" style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
+                    <a href="https://github.com/ParkoSpace/in" target="_blank" class="startup-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://parkospace.xyz" target="_blank" class="startup-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo (parkospace.xyz)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Skills ═══ -->
+    <section class="section" id="skills">
+        <div class="reveal">
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                <div class="skill-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+                <div class="skill-item"><i class="fa-brands fa-react"></i><span>React</span></div>
+                <div class="skill-item"><i class="fa-brands fa-node-js"></i><span>Node.js</span></div>
+                <div class="skill-item"><i class="fa-solid fa-flask-vial"></i><span>Flask</span></div>
+                <div class="skill-item"><i class="fa-solid fa-robot"></i><span>AI & LLMs</span></div>
+                <div class="skill-item"><i class="fa-solid fa-microchip"></i><span>Robotics & IoT</span></div>
+                <div class="skill-item"><i class="fa-solid fa-database"></i><span>Databases</span></div>
+                <div class="skill-item"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+                <div class="skill-item"><i class="fa-brands fa-google"></i><span>Google Cloud</span></div>
+                <div class="skill-item"><i class="fa-solid fa-gamepad"></i><span>Game Dev</span></div>
+                <div class="skill-item"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+                <div class="skill-item"><i class="fa-solid fa-terminal"></i><span>CLI & Automation</span></div>
+                <div class="skill-item"><i class="fa-solid fa-paintbrush"></i><span>UI/UX Design</span></div>
+                <div class="skill-item"><i class="fa-brands fa-html5"></i><span>HTML & CSS</span></div>
+                <div class="skill-item"><i class="fa-solid fa-brain"></i><span>Chatbot Design</span></div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Projects ═══ -->
+    <section class="section" id="projects">
+        <div class="reveal">
+            <p class="section-label">Projects</p>
+            <h2 class="section-title">What I've Built</h2>
+
+            <!-- Interactive Project Filters -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <span class="filter-label">Category:</span>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">[ All ]</button>
+                        <button class="filter-btn" data-filter="ai">[ AI & Data ]</button>
+                        <button class="filter-btn" data-filter="web">[ FinTech & Web ]</button>
+                        <button class="filter-btn" data-filter="systems">[ Systems & Tools ]</button>
+                        <button class="filter-btn" data-filter="games">[ Game Dev ]</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label">Tech Stack:</span>
+                    <div class="filter-options">
+                        <button class="filter-btn active" data-filter="all">[ All Tech ]</button>
+                        <button class="filter-btn" data-filter="react">[ React.js ]</button>
+                        <button class="filter-btn" data-filter="node">[ Node.js ]</button>
+                        <button class="filter-btn" data-filter="python">[ Python ]</button>
+                        <button class="filter-btn" data-filter="js-canvas">[ JS / Canvas ]</button>
+                        <button class="filter-btn" data-filter="low-level">[ Low-Level / C ]</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-grid">
+
+                <!-- DevMemory AI -->
+                <div class="project-card" data-category="ai systems node">
+                    <div class="project-header">
+                        <div class="project-icon">🧠</div>
+                        <div class="project-links">
+                            <a href="https://github.com/DevMemory-ai" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://devmemory-ai.github.io/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">DevMemory AI</h3>
+                    <p class="project-desc">AI-powered developer memory companion. Captures, indexes, and queries coding context and session knowledge locally.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Electron</span>
+                        <span class="project-tag">VectorDB</span>
+                        <span class="project-tag">LLMs</span>
+                    </div>
+                </div>
+
+                <!-- Open Pay -->
+                <div class="project-card" data-category="web react node">
+                    <div class="project-header">
+                        <div class="project-icon">💳</div>
+                        <div class="project-links">
+                            <a href="https://github.com/OpenPay-in" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://open-pay-gamma.vercel.app/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Open Pay</h3>
+                    <p class="project-desc">Next-gen payments and invoicing protocol built for digital freelancers and builders in India. High-throughput & instant settlement.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React.js</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">FinTech</span>
+                    </div>
+                </div>
+
+                <!-- Dine Crew -->
+                <div class="project-card" data-category="web react node">
+                    <div class="project-header">
+                        <div class="project-icon">🍽️</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/DineCrew" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://dine-crew.vercel.app/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Dine Crew</h3>
+                    <p class="project-desc">Collaborative dining coordinator and smart bill-splitting engine for crews, making group expenses instant and transparent.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React.js</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Socket.io</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- BhashaBytes -->
+                <div class="project-card" data-category="systems python">
+                    <div class="project-header">
+                        <div class="project-icon">🌐</div>
+                        <div class="project-links">
+                            <a href="https://github.com/bhashabytes" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://bhashabytes.github.io/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">BhashaBytes</h3>
+                    <p class="project-desc">Toy programming languages inspired by 11 Indian languages. Published in 1
+                        hour — Indian Book of Records. 🇮🇳</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">AST Parsing</span>
+                        <span class="project-tag">Lexer/Interpreter</span>
+                    </div>
+                </div>
+
+                <!-- 000OS -->
+                <div class="project-card" data-category="systems low-level">
+                    <div class="project-header">
+                        <div class="project-icon">🖥️</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/X_11-apps" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="http://www.umeshadabala.xyz/000OS/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">000OS</h3>
+                    <p class="project-desc">A basic Linux distro based on BusyBox. Exploratory projects in Linux GUI
+                        (X11) and system-level design.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">C Language</span>
+                        <span class="project-tag">Shell Script</span>
+                        <span class="project-tag">Linux Kernel</span>
+                        <span class="project-tag">X11 GUI</span>
+                    </div>
+                </div>
+
+                <!-- PaperTradeX -->
+                <div class="project-card" data-category="web python">
+                    <div class="project-header">
+                        <div class="project-icon">💹</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/PaperTradeX" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://papertradex.streamlit.app/" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">PaperTradeX</h3>
+                    <p class="project-desc">A web-based crypto market trading simulator. Practice trading with real-time
+                        data and zero risk.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Streamlit</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Binance API</span>
+                    </div>
+                </div>
+
+                <!-- Dig Dig Repeat -->
+                <div class="project-card" data-category="games js-canvas">
+                    <div class="project-header">
+                        <div class="project-icon">🎮</div>
+                        <div class="project-links">
+                            <a href="https://umeshdevstudio.itch.io/dig-dig-repeat" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Dig Dig Repeat</h3>
+                    <p class="project-desc">A fun and frustrating game — plus a Mathified edition that gamifies math
+                        learning with the same core loop.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">HTML5 Canvas</span>
+                        <span class="project-tag">Game Physics</span>
+                        <span class="project-tag">itch.io</span>
+                    </div>
+                </div>
+
+                <!-- PNR Status -->
+                <div class="project-card" data-category="systems python">
+                    <div class="project-header">
+                        <div class="project-icon">🚉</div>
+                        <div class="project-links">
+                            <a href="https://github.com/umeshadabala/pnr_status" target="_blank" aria-label="GitHub"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">PNR Status</h3>
+                    <p class="project-desc">Python script to check Indian Railways PNR status. CLI automation for quick
+                        travel info.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">CLI Automation</span>
+                        <span class="project-tag">BeautifulSoup</span>
+                    </div>
+                </div>
+
+                <!-- Circle vs Square -->
+                <div class="project-card" data-category="games js-canvas">
+                    <div class="project-header">
+                        <div class="project-icon">⚔️</div>
+                        <div class="project-links">
+                            <a href="https://umeshdevstudio.itch.io/circle-vs-square" target="_blank" aria-label="Live Demo"><i
+                                    class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Circle vs Square</h3>
+                    <p class="project-desc">A simple but addictive strategy game pitting geometric shapes against each
+                        other.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">HTML5 Canvas</span>
+                        <span class="project-tag">Strategy AI</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ─── Virtual PromptWars Sub-Section ─── -->
+            <div class="promptwars-section">
+                <div class="promptwars-header">
+                    <span class="promptwars-icon">⚡</span>
+                    <div>
+                        <p class="promptwars-label">Sub-Project Collection</p>
+                        <h3 class="promptwars-title">Virtual PromptWars</h3>
+                    </div>
+                </div>
+                <div class="promptwars-grid">
+
+                    <div class="promptwars-card" data-category="web systems react">
+                        <div class="project-header">
+                            <div class="project-icon">🏟️</div>
+                            <div class="project-links">
+                                <a href="https://github.com/umeshadabala/FlowState-Arena" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                                <a href="https://flow-state-arena.vercel.app/" target="_blank"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">FlowState Arena</h3>
+                        <p class="project-desc">Real-time crowd intelligence platform for large-scale venues. A
+                            self-simulating digital twin dashboard using Behavioral Load Balancing to visualize,
+                            predict, and manage crowd congestion across 36 stadium zones.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Vite</span>
+                            <span class="project-tag">Framer Motion</span>
+                            <span class="project-tag">Tailwind</span>
+                        </div>
+                    </div>
+
+                    <div class="promptwars-card" data-category="ai web games python">
+                        <div class="project-header">
+                            <div class="project-icon">🗳️</div>
+                            <div class="project-links">
+                                <a href="https://github.com/umeshadabala/LOKTANTRA" target="_blank"><i
+                                        class="fa-brands fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">LOKTANTRA</h3>
+                        <p class="project-desc">Cloud-native interactive election simulator for India. Teaches civic
+                            literacy through 8 gamified levels grounded in ECI Constitutional principles (Articles
+                            324-329). Powered by Vertex AI and Firestore.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">GCP</span>
+                            <span class="project-tag">Vertex AI</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="startup-section">
+                <div class="startup-card" data-category="ai web react node">
+                    <div class="startup-badge"><i class="fa-solid fa-rocket"></i> Potential Startup</div>
+                    <h3 class="startup-name">LifeBoat.ai</h3>
+                    <p class="startup-desc">Intelligent career survival dashboard for the modern job market. Features AI-powered resume parsing, real-time job discovery via Adzuna, budget-aware housing search, and financial runway analytics to help professionals navigate career transitions.</p>
+                    <div class="startup-tags">
+                        <span class="startup-tag">React</span>
+                        <span class="startup-tag">Node.js</span>
+                        <span class="startup-tag">Claude AI</span>
+                        <span class="startup-tag">Vite</span>
+                    </div>
+                    <div class="startup-links" style="display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap;">
+                        <a href="https://github.com/Life-Boat-ai/LifeBoat.ai" target="_blank" class="startup-link" style="margin-top: 0;">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://lifeboat-ai.onrender.com" target="_blank" class="startup-link" style="margin-top: 0;">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo (lifeboat-ai.onrender.com)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Achievements ═══ -->
+    <section class="section" id="achievements">
+        <div class="reveal">
+            <p class="section-label">Achievements</p>
+            <h2 class="section-title">Milestones & Awards</h2>
+            <div class="achievements-list">
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-award"></i></div>
+                    <div class="achievement-content">
+                        <h3>Indian Book of Records Achiever</h3>
+                        <p>Published 11 regional programming languages in 1 hour at age 17 — the BhashaBytes Project.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="achievement-content">
+                        <h3>Research Paper Published</h3>
+                        <p><a href="https://www.curieuxacademicjournal.com/_files/ugd/99711c_b97b0f2ef3e74aceb8b0d6b3a12700cb.pdf#page=311"
+                                target="_blank">"Digital Fusion Roots"</a> submitted to the Curieux Academic Journal
+                            (CAJ).</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <div class="achievement-content">
+                        <h3>Kite Hacks Back To School — WINNER</h3>
+                        <p>Won with <a href="https://github.com/umeshadabala/X_11-apps" target="_blank">X-11 Apps</a> —
+                            exploratory projects in Linux GUI and system design.</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <div class="achievement-content">
+                        <h3>Daydream Global Jam</h3>
+                        <p>Submitted <a href="https://umeshdevstudio.itch.io/hand-cricket-showdown" target="_blank">Hand
+                                Cricket Showdown</a> — a gamified cricket experience.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══ Contact ═══ -->
+    <section class="section" id="contact">
+        <div class="reveal">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <a href="https://github.com/umeshadabala" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">umeshadabala</span>
+                    </div>
+                </a>
+                <a href="https://x.com/umeshadabala777" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">X (Twitter)</span>
+                        <span class="contact-value">@umeshadabala777</span>
+                    </div>
+                </a>
+                <a href="https://youtube.com/@umeshlab987" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-youtube"></i>
+                    <div class="contact-info">
+                        <span class="contact-label">YouTube</span>
+                        <span class="contact-value">@umeshlab987</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+        <p>Built with <span class="accent">♥</span> by Umesh Adabala · <span class="accent">2026</span></p>
+    </footer>
+
+    <!-- 8D Audio Toast Notification -->
+    <div class="audio-toast" id="audioToast">
+        <i class="fa-solid fa-headphones" style="color: var(--accent); font-size: 14px;"></i>
+        <span>HEADPHONES RECOMMENDED FOR THE FULL 8D EXPERIENCE</span>
+        <button class="toast-close-btn" id="toastClose" aria-label="Close notification and play music">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <!-- Retro Synthesizer Music Player -->
+    <div class="music-deck" id="musicDeck">
+        <div class="deck-header" id="deckHeader">
+            <div class="deck-indicator">
+                <span class="music-bars">
+                    <span></span><span></span><span></span><span></span>
+                </span>
+                <span class="deck-title">DECK_1: RETRO_BEATS</span>
+            </div>
+            <div class="deck-controls">
+                <span class="headphones-hint" title="Use headphones for the best experience!"><i class="fa-solid fa-headphones"></i></span>
+                <button class="deck-btn" id="deckToggle" title="Minimize / Expand Player" aria-label="Minimize or Expand Spotify Music Player">
+                    <i class="fa-solid fa-window-minimize"></i>
+                </button>
+            </div>
+        </div>
+        <div class="deck-body" id="deckBody">
+            <div class="custom-player">
+                <div class="player-info">
+                    <div class="track-name" id="trackName">LOADING_TRACK...</div>
+                    <div class="track-time"><span id="trackCurrent">00:00</span> / <span id="trackDuration">00:00</span></div>
+                </div>
+                
+                <div class="player-progress-container" id="playerProgressContainer">
+                    <div class="player-progress" id="playerProgress"></div>
+                </div>
+                
+                <div class="player-controls">
+                    <button class="player-btn" id="playerPrev" title="Previous Track"><i class="fa-solid fa-backward-step"></i></button>
+                    <button class="player-btn play" id="playerPlay" title="Play / Pause"><i class="fa-solid fa-play"></i></button>
+                    <button class="player-btn" id="playerNext" title="Next Track"><i class="fa-solid fa-forward-step"></i></button>
+                    <div class="volume-container">
+                        <i class="fa-solid fa-volume-high" style="font-size: 10px;"></i>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.5" aria-label="Volume">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ JavaScript ═══ -->
+    <script>
+        // ─── Age Counter (DOB: 14-02-2008) ───
+        const DOB = new Date(2008, 1, 14, 0, 0, 0); // Feb 14, 2008
+
+        function updateAge() {
+            const now = new Date();
+            const diff = now - DOB;
+
+            const totalSeconds = Math.floor(diff / 1000);
+            const totalMinutes = Math.floor(totalSeconds / 60);
+            const totalHours = Math.floor(totalMinutes / 60);
+            const totalDays = Math.floor(totalHours / 24);
+
+            // Calculate years
+            let years = now.getFullYear() - DOB.getFullYear();
+            const dobThisYear = new Date(now.getFullYear(), DOB.getMonth(), DOB.getDate());
+            if (now < dobThisYear) years--;
+
+            // Days since last birthday
+            let lastBday = new Date(now.getFullYear(), DOB.getMonth(), DOB.getDate());
+            if (now < lastBday) lastBday = new Date(now.getFullYear() - 1, DOB.getMonth(), DOB.getDate());
+            const daysSinceBday = Math.floor((now - lastBday) / (1000 * 60 * 60 * 24));
+
+            // Remaining time within the day
+            const hours = now.getHours();
+            const mins = now.getMinutes();
+            const secs = now.getSeconds();
+
+            document.getElementById('ageYears').textContent = years;
+            document.getElementById('ageDays').textContent = daysSinceBday;
+            document.getElementById('ageHours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('ageMins').textContent = String(mins).padStart(2, '0');
+            document.getElementById('ageSecs').textContent = String(secs).padStart(2, '0');
+        }
+
+        updateAge();
+        setInterval(updateAge, 1000);
+
+        // ─── Typing Effect ───
+        const phrases = [
+            "Building things that merge creativity and code.",
+            "Creator of BhashaBytes 🌐",
+            "AI · EdTech · Games · Systems",
+            "Indian Book of Records Achiever.",
+            "Shipping fast. Learning faster."
+        ];
+
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingEl = document.getElementById('typingText');
+
+        function typeLoop() {
+            const current = phrases[phraseIndex];
+            if (isDeleting) {
+                typingEl.textContent = current.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeLoop, 400);
+                    return;
+                }
+                setTimeout(typeLoop, 30);
+            } else {
+                typingEl.textContent = current.substring(0, charIndex++);
+                if (charIndex > current.length) {
+                    isDeleting = true;
+                    setTimeout(typeLoop, 2000);
+                    return;
+                }
+                setTimeout(typeLoop, 60);
+            }
+        }
+
+        typeLoop();
+
+        // ─── Nav Toggle ───
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ─── Scroll Reveal ───
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // ─── Smooth Scroll ───
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ─── Custom CLI Cursor ───
+        const cursor = document.getElementById('customCursor');
+        const cursorGlow = document.getElementById('customCursorGlow');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            if (cursorGlow) {
+                cursorGlow.style.left = `${mouseX}px`;
+                cursorGlow.style.top = `${mouseY}px`;
+            }
+        });
+
+        function animateCursor() {
+            const dx = mouseX - cursorX;
+            const dy = mouseY - cursorY;
+            
+            cursorX += dx * 0.15;
+            cursorY += dy * 0.15;
+            
+            if (cursor) {
+                cursor.style.left = `${cursorX}px`;
+                cursor.style.top = `${cursorY}px`;
+            }
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Add cursor hover states for interactive elements
+        function updateCursorListeners() {
+            const interactive = document.querySelectorAll('a, button, .contact-card, .skill-item, .project-links a, .filter-btn, .nav-toggle');
+            interactive.forEach(el => {
+                el.removeEventListener('mouseenter', addHoverClass);
+                el.removeEventListener('mouseleave', removeHoverClass);
+                
+                el.addEventListener('mouseenter', addHoverClass);
+                el.addEventListener('mouseleave', removeHoverClass);
+            });
+        }
+        
+        function addHoverClass() {
+            if (cursor) cursor.classList.add('hover');
+        }
+        function removeHoverClass() {
+            if (cursor) cursor.classList.remove('hover');
+        }
+        
+        updateCursorListeners();
+
+        // ─── Scroll Progress Bar ───
+        const progressBar = document.getElementById('scrollProgressBar');
+        window.addEventListener('scroll', () => {
+            const windowScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (windowScroll / height) * 100;
+            if (progressBar) progressBar.style.width = `${scrolled}%`;
+        });
+
+        // ─── Interactive Card Spotlight Glow ───
+        const allCards = document.querySelectorAll('.project-card, .promptwars-card, .startup-card');
+        document.addEventListener('mousemove', (e) => {
+            allCards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // ─── Project Filtering Logic ───
+        const categoryBtns = document.querySelectorAll('.filter-group:nth-child(1) .filter-btn');
+        const techBtns = document.querySelectorAll('.filter-group:nth-child(2) .filter-btn');
+        const promptwarsSection = document.querySelector('.promptwars-section');
+        const startupSection = document.querySelector('.startup-section');
+
+        let activeCategory = 'all';
+        let activeTech = 'all';
+
+        function filterProjects() {
+            allCards.forEach(card => {
+                const catAttr = card.getAttribute('data-category');
+                if (!catAttr) return; // Skip cards without filter categories (e.g., featured showcase cards)
+                
+                const cardCategories = catAttr.split(' ');
+                
+                // Matches active category
+                const matchesCategory = (activeCategory === 'all' || cardCategories.includes(activeCategory));
+                
+                // Matches active tech stack
+                const matchesTech = (activeTech === 'all' || cardCategories.includes(activeTech));
+
+                if (matchesCategory && matchesTech) {
+                    card.classList.remove('filtered-out');
+                } else {
+                    card.classList.add('filtered-out');
+                }
+            });
+
+            // Update visibility of PromptWars sub-section
+            if (promptwarsSection) {
+                const activePromptwars = promptwarsSection.querySelectorAll('.promptwars-card:not(.filtered-out)');
+                promptwarsSection.style.display = activePromptwars.length === 0 ? 'none' : 'block';
+            }
+
+            // Update visibility of Startup section
+            if (startupSection) {
+                const activeStartups = startupSection.querySelectorAll('.startup-card:not(.filtered-out)');
+                startupSection.style.display = activeStartups.length === 0 ? 'none' : 'block';
+            }
+        }
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.getAttribute('data-filter');
+                filterProjects();
+            });
+        });
+
+        techBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                techBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeTech = btn.getAttribute('data-filter');
+                filterProjects();
+            });
+        });
+
+        // ─── Simulated Dashboard Diagnostics & Logs ───
+        const logLinesContainer = document.getElementById('logLines');
+        const logMessages = [
+            "Initializing core system suite...",
+            "Loading BhashaBytes compiler integrations...",
+            "Detecting network speed: excellent (1.2 Gbps)",
+            "System logs active. Listening on port 8080...",
+            "DevMemory AI backend server: running",
+            "DineCrew microservice container: active",
+            "OpenPay high-throughput engine: online (0.01ms latency)",
+            "Git repository detected: umeshadabala.github.io",
+            "Gitignore updated: ignoring local .devmemory directory",
+            "Curiosity engine output: nominal (99.8%)",
+            "Nominal terminal status: ready to deploy."
+        ];
+
+        let logIndex = 0;
+        function addLogLine() {
+            if (!logLinesContainer) return;
+            const line = document.createElement('div');
+            line.textContent = `> ${logMessages[logIndex].toUpperCase()}`;
+            logLinesContainer.appendChild(line);
+            logIndex = (logIndex + 1) % logMessages.length;
+            
+            // Scroll to bottom
+            logLinesContainer.scrollTop = logLinesContainer.scrollHeight;
+            
+            // Keep only last 10 log lines
+            if (logLinesContainer.children.length > 12) {
+                logLinesContainer.removeChild(logLinesContainer.firstChild);
+            }
+        }
+
+        // Add initial logs
+        for (let i = 0; i < 4; i++) {
+            addLogLine();
+        }
+        setInterval(addLogLine, 3000);
+
+        // Fluctuate stats
+        setInterval(() => {
+            const curiosityFill = document.getElementById('statCuriosity');
+            const curiosityVal = document.getElementById('valCuriosity');
+            const coffeeFill = document.getElementById('statCoffee');
+            const coffeeVal = document.getElementById('valCoffee');
+
+            if (curiosityFill && curiosityVal) {
+                const cVal = 94 + Math.floor(Math.random() * 6); // 94% to 99%
+                curiosityFill.style.width = `${cVal}%`;
+                curiosityVal.textContent = `${cVal}%`;
+            }
+
+            if (coffeeFill && coffeeVal) {
+                const cofVal = 70 + Math.floor(Math.random() * 16); // 70% to 85%
+                coffeeFill.style.width = `${cofVal}%`;
+                coffeeVal.textContent = `${cofVal}%`;
+            }
+        }, 3500);
+
+        // Re-run cursor tracking on dynamic filters updates
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setTimeout(updateCursorListeners, 100);
+            });
+        });
+
+        // ─── Theme Customizer ───
+        const themes = {
+            green: {
+                '--accent': '#00ffaa',
+                '--accent-dim': 'rgba(0, 255, 170, 0.15)',
+                '--accent-glow': 'rgba(0, 255, 170, 0.4)',
+                '--border-glass': 'rgba(0, 255, 170, 0.12)',
+                '--border-glow': 'rgba(0, 255, 170, 0.3)',
+                '--shadow-glow': '0 0 20px rgba(0, 255, 170, 0.1), 0 0 60px rgba(0, 255, 170, 0.05)'
+            },
+            cyan: {
+                '--accent': '#22d3ee',
+                '--accent-dim': 'rgba(34, 211, 238, 0.15)',
+                '--accent-glow': 'rgba(34, 211, 238, 0.4)',
+                '--border-glass': 'rgba(34, 211, 238, 0.12)',
+                '--border-glow': 'rgba(34, 211, 238, 0.3)',
+                '--shadow-glow': '0 0 20px rgba(34, 211, 238, 0.1), 0 0 60px rgba(34, 211, 238, 0.05)'
+            },
+            pink: {
+                '--accent': '#ec4899',
+                '--accent-dim': 'rgba(236, 72, 153, 0.15)',
+                '--accent-glow': 'rgba(236, 72, 153, 0.4)',
+                '--border-glass': 'rgba(236, 72, 153, 0.12)',
+                '--border-glow': 'rgba(236, 72, 153, 0.3)',
+                '--shadow-glow': '0 0 20px rgba(236, 72, 153, 0.1), 0 0 60px rgba(236, 72, 153, 0.05)'
+            },
+            purple: {
+                '--accent': '#a855f7',
+                '--accent-dim': 'rgba(168, 85, 247, 0.15)',
+                '--accent-glow': 'rgba(168, 85, 247, 0.4)',
+                '--border-glass': 'rgba(168, 85, 247, 0.12)',
+                '--border-glow': 'rgba(168, 85, 247, 0.3)',
+                '--shadow-glow': '0 0 20px rgba(168, 85, 247, 0.1), 0 0 60px rgba(168, 85, 247, 0.05)'
+            },
+            orange: {
+                '--accent': '#f59e0b',
+                '--accent-dim': 'rgba(245, 158, 11, 0.15)',
+                '--accent-glow': 'rgba(245, 158, 11, 0.4)',
+                '--border-glass': 'rgba(245, 158, 11, 0.12)',
+                '--border-glow': 'rgba(245, 158, 11, 0.3)',
+                '--shadow-glow': '0 0 20px rgba(245, 158, 11, 0.1), 0 0 60px rgba(245, 158, 11, 0.05)'
+            }
+        };
+
+        function applyTheme(themeName) {
+            const themeProps = themes[themeName] || themes.green;
+            for (const [prop, val] of Object.entries(themeProps)) {
+                document.documentElement.style.setProperty(prop, val);
+            }
+            
+            // Update active dot indicator in Navbar
+            document.querySelectorAll('.theme-dot').forEach(btn => {
+                if (btn.getAttribute('data-theme') === themeName) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('selectedTheme', themeName);
+        }
+
+        document.querySelectorAll('.theme-dot').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const theme = btn.getAttribute('data-theme');
+                applyTheme(theme);
+            });
+        });
+
+        // Load stored theme on startup
+        const storedTheme = localStorage.getItem('selectedTheme') || 'green';
+        applyTheme(storedTheme);
+
+        // ─── Retro Synthesizer Music Player Engine ───
+        const musicDeck = document.getElementById('musicDeck');
+        const deckHeader = document.getElementById('deckHeader');
+        const deckToggle = document.getElementById('deckToggle');
+        
+        const trackNameEl = document.getElementById('trackName');
+        const trackCurrentEl = document.getElementById('trackCurrent');
+        const trackDurationEl = document.getElementById('trackDuration');
+        const playerProgressEl = document.getElementById('playerProgress');
+        const playerProgressContainer = document.getElementById('playerProgressContainer');
+        
+        const playerPlayBtn = document.getElementById('playerPlay');
+        const playerPrevBtn = document.getElementById('playerPrev');
+        const playerNextBtn = document.getElementById('playerNext');
+        const volumeSlider = document.getElementById('volumeSlider');
+        
+        const audio = new Audio();
+        audio.crossOrigin = "anonymous"; // Request CORS configuration to allow Web Audio API processing
+        
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        
+        const playlist = [
+            { title: "LOFI_VLOG_BEAT", url: "https://cdn.pixabay.com/download/audio/2025/11/18/audio_f7e5616e05.mp3?filename=chill-lofi-vlog-relaxing-background-hip-hop-beat-438699.mp3" },
+            { title: "LOFI_STUDY_SESSION", url: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" }
+        ];
+
+        // Shuffle playlist for each user
+        const shuffledPlaylist = [...playlist].sort(() => Math.random() - 0.5);
+
+        // Web Audio API spatial 8D panning logic
+        let audioCtx;
+        let source;
+        let panner;
+
+        function initAudioContext() {
+            if (audioCtx) return;
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                source = audioCtx.createMediaElementSource(audio);
+                if (audioCtx.createStereoPanner) {
+                    panner = audioCtx.createStereoPanner();
+                    source.connect(panner);
+                    panner.connect(audioCtx.destination);
+                } else {
+                    source.connect(audioCtx.destination);
+                }
+                start8DPanning();
+            } catch (e) {
+                console.log("Web Audio API not supported/failed:", e);
+            }
+        }
+
+        function start8DPanning() {
+            let angle = 0;
+            function updatePan() {
+                if (isPlaying && panner && panner.pan) {
+                    angle += 0.006; // Adjust speed of rotation (approx. 6 seconds per cycle)
+                    panner.pan.value = Math.sin(angle);
+                }
+                requestAnimationFrame(updatePan);
+            }
+            updatePan();
+        }
+
+        // Load Track
+        function loadTrack(index) {
+            currentTrackIndex = index;
+            const track = shuffledPlaylist[index];
+            if (trackNameEl) trackNameEl.textContent = track.title;
+            audio.src = track.url;
+            
+            // Reset Progress Bar
+            if (playerProgressEl) playerProgressEl.style.width = '0%';
+            
+            // Reset times
+            if (trackCurrentEl) trackCurrentEl.textContent = '00:00';
+            if (trackDurationEl) trackDurationEl.textContent = '00:00';
+        }
+
+        // Toggle Play
+        function togglePlay() {
+            if (isPlaying) {
+                pauseTrack();
+            } else {
+                playTrack();
+            }
+        }
+
+        function dismissToast() {
+            const toast = document.getElementById('audioToast');
+            if (toast) {
+                toast.classList.remove('show');
+            }
+        }
+
+        function playTrack() {
+            isPlaying = true;
+            
+            // Initialize Web Audio API on gesture
+            initAudioContext();
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+
+            audio.play().then(() => {
+                removeAutoPlayListeners();
+                if (playerPlayBtn) playerPlayBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                dismissToast();
+            }).catch(e => {
+                console.log("Play failed: ", e);
+                isPlaying = false;
+            });
+        }
+
+        function pauseTrack() {
+            isPlaying = false;
+            audio.pause();
+            if (playerPlayBtn) playerPlayBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        }
+
+        // Prev & Next Track
+        function nextTrack() {
+            let nextIndex = (currentTrackIndex + 1) % shuffledPlaylist.length;
+            loadTrack(nextIndex);
+            if (isPlaying) playTrack();
+        }
+
+        // Prev & Next Track
+        function prevTrack() {
+            let prevIndex = currentTrackIndex - 1;
+            if (prevIndex < 0) prevIndex = shuffledPlaylist.length - 1;
+            loadTrack(prevIndex);
+            if (isPlaying) playTrack();
+        }
+
+        // Time updates
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const current = audio.currentTime;
+                const duration = audio.duration;
+                const progressPercent = (current / duration) * 100;
+                
+                if (playerProgressEl) playerProgressEl.style.width = `${progressPercent}%`;
+                if (trackCurrentEl) trackCurrentEl.textContent = formatTime(current);
+                if (trackDurationEl) trackDurationEl.textContent = formatTime(duration);
+            }
+        });
+
+        // Track ends
+        audio.addEventListener('ended', () => {
+            nextTrack();
+        });
+
+        // Seek
+        if (playerProgressContainer) {
+            playerProgressContainer.addEventListener('click', (e) => {
+                const rect = playerProgressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                const clickPercent = clickX / width;
+                if (audio.duration) {
+                    audio.currentTime = clickPercent * audio.duration;
+                }
+            });
+        }
+
+        // Volume Change
+        if (volumeSlider) {
+            volumeSlider.addEventListener('input', (e) => {
+                audio.volume = e.target.value;
+            });
+            audio.volume = volumeSlider.value;
+        }
+
+        // Helper time formatter
+        function formatTime(secs) {
+            if (isNaN(secs)) return "00:00";
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        // Deck Toggle Expand/Minimize Click
+        if (deckHeader && musicDeck) {
+            deckHeader.addEventListener('click', (e) => {
+                if (e.target.closest('.deck-btn') || e.target.closest('.headphones-hint') || e.target.closest('.volume-slider')) return;
+                
+                musicDeck.classList.toggle('minimized');
+                const icon = deckToggle.querySelector('i');
+                if (musicDeck.classList.contains('minimized')) {
+                    icon.className = 'fa-solid fa-chevron-up';
+                } else {
+                    icon.className = 'fa-solid fa-window-minimize';
+                }
+            });
+            
+            if (deckToggle) {
+                deckToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    musicDeck.classList.toggle('minimized');
+                    const icon = deckToggle.querySelector('i');
+                    if (musicDeck.classList.contains('minimized')) {
+                        icon.className = 'fa-solid fa-chevron-up';
+                    } else {
+                        icon.className = 'fa-solid fa-window-minimize';
+                    }
+                });
+            }
+        }
+
+        // Connect button controls
+        if (playerPlayBtn) playerPlayBtn.addEventListener('click', togglePlay);
+        if (playerNextBtn) playerNextBtn.addEventListener('click', nextTrack);
+        if (playerPrevBtn) playerPrevBtn.addEventListener('click', prevTrack);
+
+        // Load initial track
+        loadTrack(0);
+
+        // Autoplay immediately on first user interaction (click, mousedown, pointerdown, touchstart, keydown)
+        let autoPlayTriggered = false;
+        
+        function addAutoPlayListeners() {
+            const events = ['click', 'mousedown', 'pointerdown', 'touchstart', 'keydown'];
+            
+            // Attach to window and document
+            events.forEach(evt => {
+                window.addEventListener(evt, triggerAutoPlay, { passive: true });
+                document.addEventListener(evt, triggerAutoPlay, { passive: true });
+            });
+            
+            // Explicitly attach to all interactive elements to bypass any stopPropagation
+            const interactives = document.querySelectorAll('a, button, input, select, textarea, [role="button"], .stat-card, .contact-card, .skill-item, .theme-dot, #deckHeader');
+            interactives.forEach(el => {
+                events.forEach(evt => {
+                    el.addEventListener(evt, triggerAutoPlay, { passive: true });
+                });
+            });
+        }
+        
+        function removeAutoPlayListeners() {
+            autoPlayTriggered = true;
+            const events = ['click', 'mousedown', 'pointerdown', 'touchstart', 'keydown'];
+            
+            events.forEach(evt => {
+                window.removeEventListener(evt, triggerAutoPlay);
+                document.removeEventListener(evt, triggerAutoPlay);
+            });
+            
+            const interactives = document.querySelectorAll('a, button, input, select, textarea, [role="button"], .stat-card, .contact-card, .skill-item, .theme-dot, #deckHeader');
+            interactives.forEach(el => {
+                events.forEach(evt => {
+                    el.removeEventListener(evt, triggerAutoPlay);
+                });
+            });
+        }
+        
+        function triggerAutoPlay() {
+            if (autoPlayTriggered) return;
+            playTrack();
+        }
+
+        // Show headphones recommendation toast immediately on visit, and bind interactions to start playback
+        const toast = document.getElementById('audioToast');
+        if (toast) {
+            // Show toast after a brief delay for a smooth slide-down transition
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 600);
+
+            // Play track and dismiss toast on clicking the toast body or the close button
+            toast.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dismissToast();
+                playTrack();
+            });
+        }
+        
+        addAutoPlayListeners();
+    </script>
+
+</body>
+
+</html> 
+<!-- DevMemory Watcher Test Edit 4 -->
